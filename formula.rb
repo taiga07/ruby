@@ -22,6 +22,30 @@
 # puts "#{t}番目の数字は#{c}です"
 
 
+# フィボナッチ数列
+
+class Fib
+  def fibonacci n
+    send "fibonacci_#{n}"
+  end
+
+  def method_missing name, *args
+    return super if name !~ /fibonacci_(\d+)/
+    num = $1.to_i
+    result = if num <= 1
+      num
+    else
+      fibonacci(num - 2) + fibonacci(num - 1)
+    end
+    define_singleton_method(name) { result }
+    result
+  end
+end
+
+fib = Fib.new
+p (0..50).map { |n| fib.fibonacci(n) }
+
+
 # 約数の出力
 
 # def divisor(num)
@@ -62,26 +86,28 @@
 
 # 輪を出したい約数の範囲を指定できるようにする
 
-def divisor(num, range)
-  divisible = []
-  divisible_range = []
-  count = 1
-  while count <= num
-    divisible_or = num % count
-    if divisible_or == 0
-      divisible << count
-      if count <= range
-        divisible_range << count
-      end
-    end
-    count += 1
-  end
-  puts "約数の総和は#{divisible.sum}です"
-  puts "#{range}以下の約数の和は#{divisible_range.sum}です"
-end
+# def divisor(num, range)
+#   divisible = []
+#   divisible_range = []
+#   count = 1
+#   while count <= num
+#     divisible_or = num % count
+#     if divisible_or == 0
+#       divisible << count
+#       if count <= range
+#         divisible_range << count
+#       end
+#     end
+#     count += 1
+#   end
+#   puts "約数の総和は#{divisible.sum}です"
+#   puts "#{range}以下の約数の和は#{divisible_range.sum}です"
+# end
 
-puts "約数の総和を出したい整数を入力してください"
-num = gets.to_i
-puts "和を出したい約数の範囲を指定してください"
-range = gets.to_i
-divisor(num, range)
+# puts "約数の総和を出したい整数を入力してください"
+# num = gets.to_i
+# puts "和を出したい約数の範囲を指定してください"
+# range = gets.to_i
+# divisor(num, range)
+
+
