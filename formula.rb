@@ -109,5 +109,3 @@ p (0..50).map { |n| fib.fibonacci(n) }
 # puts "和を出したい約数の範囲を指定してください"
 # range = gets.to_i
 # divisor(num, range)
-
-
