@@ -1,3 +1,21 @@
+# 最大公約数
+# puts 4.gcd(6)
+
+# 最小公倍数
+# puts 4.lcm(6)
+
+# 3つの整数の場合
+# puts a.gcd(b).gcd(c)
+
+# puts a.lcm(b).lcm(c)
+
+# 整数の組みが配列で与えられていたら
+# numbers = [30,20,15]
+
+# puts numbers.inject(:gcd)
+
+# puts numbers.inject(:lcm)
+
 # トリボナッチ数列
 
 # puts "求めたい数字を入力してください"
@@ -24,26 +42,26 @@
 
 # フィボナッチ数列
 
-class Fib
-  def fibonacci n
-    send "fibonacci_#{n}"
-  end
+# class Fib
+#   def fibonacci n
+#     send "fibonacci_#{n}"
+#   end
 
-  def method_missing name, *args
-    return super if name !~ /fibonacci_(\d+)/
-    num = $1.to_i
-    result = if num <= 1
-      num
-    else
-      fibonacci(num - 2) + fibonacci(num - 1)
-    end
-    define_singleton_method(name) { result }
-    result
-  end
-end
+#   def method_missing name, *args
+#     return super if name !~ /fibonacci_(\d+)/
+#     num = $1.to_i
+#     result = if num <= 1
+#       num
+#     else
+#       fibonacci(num - 2) + fibonacci(num - 1)
+#     end
+#     define_singleton_method(name) { result }
+#     result
+#   end
+# end
 
-fib = Fib.new
-p (0..50).map { |n| fib.fibonacci(n) }
+# fib = Fib.new
+# p (0..50).map { |n| fib.fibonacci(n) }
 
 
 # 約数の出力
@@ -109,3 +127,16 @@ p (0..50).map { |n| fib.fibonacci(n) }
 # puts "和を出したい約数の範囲を指定してください"
 # range = gets.to_i
 # divisor(num, range)
+
+
+# 整数 a,b,cと、文字列 s が与えられます。
+# a+b+c の計算結果と、文字列 s を並べて表示しなさい。
+
+# 整数の入力
+a = gets.to_i
+# スペース区切りの整数の入力
+b,c=gets.chomp.split(" ").map(&:to_i);
+# 文字列の入力
+s = gets.chomp
+# 出力
+puts("#{a+b+c} #{s}\n")
