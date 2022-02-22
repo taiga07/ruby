@@ -191,21 +191,36 @@
 
 
 ### 1以上N以下の整数のうち、10 進法で各桁の和が A 以上 B 以下であるものについて、
-### 総和を求めてください。 
+### 総和を求めてください。
 
-n,a,b = gets.split(" ").map(&:to_i)
-result = 0
+# n,a,b = gets.split(" ").map(&:to_i)
+# result = 0
 
-(1..n).each do |i|
-  j = i
-  sum = 0
-  while j > 0
-    sum += j % 10 #jを10で割った余をsumに入れていく
-    j = j / 10    #jを10で割った値をjに入れる
-  end
-  if sum >= a && sum <= b
-    result += i
-  end
+# (1..n).each do |i|
+#   j = i
+#   sum = 0
+#   while j > 0
+#     sum += j % 10 #jを10で割った余をsumに入れていく
+#     j = j / 10    #jを10で割った値をjに入れる
+#   end
+#   if sum >= a && sum <= b
+#     result += i
+#   end
+# end
+
+# puts result
+
+###配列から大きい順に二人(aliceとbob)でカードを取った時、何点多く獲得できるか。
+n = gets.to_i
+card = gets.split.map(&:to_i).sort.reverse #数字の大きい順に並び替える（sortのみで小さい順）
+
+alice = 0
+bob = 0
+
+until card.empty? do
+    alice += card.shift #配列の先頭から要素を取り出す
+    break if card.empty? #break ifを使うことでfalceだった場合繰り返し処理を終了する。
+    bob += card.shift
 end
 
-puts result
+puts (alice - bob)
