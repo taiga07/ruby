@@ -133,10 +133,39 @@
 # a+b+c の計算結果と、文字列 s を並べて表示しなさい。
 
 # 整数の入力
-a = gets.to_i
+# a = gets.to_i
 # スペース区切りの整数の入力
-b,c=gets.chomp.split(" ").map(&:to_i);
+# a,b,c = gets.chomp.split(" ").map(&:to_i);
 # 文字列の入力
-s = gets.chomp
+# s = gets.chomp
 # 出力
-puts("#{a+b+c} #{s}\n")
+# puts("#{a+b+c} #{s}\n")
+
+
+# 整数を２つ入力
+# a,b = gets.split(" ").map(&:to_i);
+
+# a×b
+# c = a * b
+
+# cが奇数か偶数か
+# if c % 2 == 0
+#   puts "Even"
+# else
+#   puts "Odd"
+# end
+
+
+# 配列の値が奇数になるまで2で
+# 整数を入力
+n = gets.to_i
+
+puts("#{n}個数字を入力してください")
+lists = gets.split(" ").map(&:to_i)
+cnt = 0
+while lists.all?(&:even?) do  #全てが偶数かどうか　.all?(&:even?)
+  cnt += 1
+  lists = lists.map{|a| a/2}
+end
+
+puts cnt
