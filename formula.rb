@@ -1,22 +1,23 @@
-# 最大公約数
+### 最大公約数
 # puts 4.gcd(6)
 
-# 最小公倍数
+### 最小公倍数
 # puts 4.lcm(6)
 
-# 3つの整数の場合
+### 3つの整数の場合
 # puts a.gcd(b).gcd(c)
 
 # puts a.lcm(b).lcm(c)
 
-# 整数の組みが配列で与えられていたら
+### 整数の組みが配列で与えられていたら
 # numbers = [30,20,15]
 
 # puts numbers.inject(:gcd)
 
 # puts numbers.inject(:lcm)
 
-# トリボナッチ数列
+
+### トリボナッチ数列
 
 # puts "求めたい数字を入力してください"
 # puts "1つ目の数字"
@@ -40,7 +41,7 @@
 # puts "#{t}番目の数字は#{c}です"
 
 
-# フィボナッチ数列
+### フィボナッチ数列
 
 # class Fib
 #   def fibonacci n
@@ -64,7 +65,7 @@
 # p (0..50).map { |n| fib.fibonacci(n) }
 
 
-# 約数の出力
+### 約数の出力
 
 # def divisor(num)
 #   count = 1
@@ -82,7 +83,7 @@
 # divisor(num)
 
 
-# 約数の合計を出力
+### 約数の合計を出力
 
 # def divisor(num)
 #   divisible = []
@@ -102,7 +103,7 @@
 # divisor(num)
 
 
-# 輪を出したい約数の範囲を指定できるようにする
+### 輪を出したい約数の範囲を指定できるようにする
 
 # def divisor(num, range)
 #   divisible = []
@@ -129,8 +130,8 @@
 # divisor(num, range)
 
 
-# 整数 a,b,cと、文字列 s が与えられます。
-# a+b+c の計算結果と、文字列 s を並べて表示しなさい。
+### 整数 a,b,cと、文字列 s が与えられます。
+### a+b+c の計算結果と、文字列 s を並べて表示しなさい。
 
 # 整数の入力
 # a = gets.to_i
@@ -156,16 +157,55 @@
 # end
 
 
-# 配列の値が奇数になるまで2で
+### 配列の値が奇数になるまで2で
 # 整数を入力
-n = gets.to_i
+# n = gets.to_i
 
-puts("#{n}個数字を入力してください")
-lists = gets.split(" ").map(&:to_i)
-cnt = 0
-while lists.all?(&:even?) do  #全てが偶数かどうか　.all?(&:even?)
-  cnt += 1
-  lists = lists.map{|a| a/2}
+# puts("#{n}個数字を入力してください")
+# lists = gets.split(" ").map(&:to_i)
+# cnt = 0
+# while lists.all?(&:even?) do  #全てが偶数かどうか　.all?(&:even?)
+#   cnt += 1
+#   lists = lists.map{|a| a/2}
+# end
+
+# puts cnt
+
+
+### 500 円玉をA枚、100 円玉をB枚、50 円玉をC枚持っています。
+### これらの硬貨の中から何枚かを選び、合計金額をちょうど XX 円にする方法は何通りあるでしょうか？
+
+# a,b,c = gets.split(" ").map(&:to_i)
+# x = gets.to_i
+
+# cnt = 0
+# (0..a).each do |i|
+#   (0..b).each do |j|
+#     (0..c).each do |k|
+#       cnt += 1 if i*500 + j*100 + k*50 == x
+#     end
+#   end
+# end
+
+# puts cnt
+
+
+### 1以上N以下の整数のうち、10 進法で各桁の和が A 以上 B 以下であるものについて、
+### 総和を求めてください。 
+
+n,a,b = gets.split(" ").map(&:to_i)
+result = 0
+
+(1..n).each do |i|
+  j = i
+  sum = 0
+  while j > 0
+    sum += j % 10 #jを10で割った余をsumに入れていく
+    j = j / 10    #jを10で割った値をjに入れる
+  end
+  if sum >= a && sum <= b
+    result += i
+  end
 end
 
-puts cnt
+puts result
