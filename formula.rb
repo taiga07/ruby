@@ -211,16 +211,77 @@
 # puts result
 
 ###配列から大きい順に二人(aliceとbob)でカードを取った時、何点多く獲得できるか。
-n = gets.to_i
-card = gets.split.map(&:to_i).sort.reverse #数字の大きい順に並び替える（sortのみで小さい順）
+# n = gets.to_i
+# card = gets.split.map(&:to_i).sort.reverse #数字の大きい順に並び替える（sortのみで小さい順）
 
-alice = 0
-bob = 0
+# alice = 0
+# bob = 0
 
-until card.empty? do
-    alice += card.shift #配列の先頭から要素を取り出す
-    break if card.empty? #break ifを使うことでfalceだった場合繰り返し処理を終了する。
-    bob += card.shift
+# until card.empty? do
+#     alice += card.shift #配列の先頭から要素を取り出す
+#     break if card.empty? #break ifを使うことでfalceだった場合繰り返し処理を終了する。
+#     bob += card.shift
+# end
+
+# puts (alice - bob)
+
+
+
+
+
+
+# 1
+# count = 1
+# sum = 0
+# while count <= 100
+#   sum += count**4
+#   count += 1
+# end
+# puts sum
+
+# 2
+# puts "求めたい数字を入力してください"
+# puts "1つ目の数字"
+# a = gets.to_i
+# puts "２つ目の数字"
+# b = gets.to_i
+# puts "３つ目の数字"
+# c = gets.to_i
+# puts "何番目の数字を求めますか？"
+# t = gets.to_i
+
+# n = 0
+# while n < (t - 3)
+#   d = a + b + c
+#   a = b
+#   b = c
+#   c = d
+#   n += 1
+# end
+
+# puts "#{t}番目の数字は#{c}です"
+
+# 3
+# num = []
+# sum = 0
+# count = 0
+# while sum < 9
+#   count += 1
+#   reciprocal = 1.0/count
+#   num << reciprocal
+#   sum = num.sum
+# end
+# puts num.length
+
+# 4
+nums = [*(1..800)].map(&:to_i).sort.reverse
+
+count = 0
+
+while nums.empty? do
+    until car <= 5000 do
+        car += nums.shift #配列の先頭から要素を取り出す
+    end
+    count += 1
 end
-
-puts (alice - bob)
+puts count
